@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+:root {
+    --main-bg-color: #111429;
+    --shadow: 0em 1em 1em 0em #0e101e;
+    --shadow-2: 0em 1em 1em 0em #07091b;
+}
+
 * {
     margin: 0px;
     padding: 0px;
     border: 0px;
     border: 0px solid #000;
+    color: #fff;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
 html, body, main {
@@ -12,30 +20,40 @@ html, body, main {
     min-height: 100%;
 }
 
-.perfil {
-    width: 100%;
-    padding: 1em ;
+body {
+    max-width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--main-bg-color);
+}
 
+main {
+    margin-top: 4em;
+}
+
+.perfil {
+    max-width: 100%;
+    background-color: var(--main-bg-color);
+    box-shadow: var(--shadow);
+    padding-bottom: 2em;
 }
 
 .perfil__info {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
-    /* background-color: rgb(197, 197, 197); */
     color: rgb(49, 49, 49);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 1em;
 }
 
 .info__foto {
     flex-grow: 1;
+    box-shadow: var(--shadow-2);
 }
 
 .info__apresentacao {
-    /* background-color: brown; */
     height: 100%;
     flex-grow: 4;
     display: flex;
@@ -44,12 +62,12 @@ html, body, main {
 
 .info__foto {
     border-radius: 100%;
+    width: 10em;
+    height: auto;
 }
 
 .apresentacao__areatexto {
     padding: 1em;
-    /* background-color: rgb(11, 122, 122); */
-
     flex-grow: 3;
 }
 
@@ -59,29 +77,56 @@ html, body, main {
 }
 
 .areatexto__frase--titulo {
-    color: rgb(51, 51, 51);
     font-weight: 600;
     font-size: 3em;
 }
 
 .contatos {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    /* background-color: blueviolet; */
-    flex-grow: 1;
+    align-items: flex-start;
+    padding: 0.5em;
+    box-sizing: border-box;
+    background-color: #111429;
+    border-radius: 6px;
+    border: 1px solid #fff;
+    align-self: flex-end;
+    margin-right: 2em;
 }
 
 .contatos__social {
     padding: 0.3em;
+    text-decoration: none;
 }
 
-.social__icone {}
+/* .social__icone {} */
 
-.social__descricao {}
+.social__descricao {
+    font-family: system-ui;
+    cursor: pointer;
+    text-decoration: underline;
+}
 
-.perfil__frase {}
+.social__descricao:hover {
+    text-decoration: none;
 
-.formacao {}
+}
+
+.perfil__frase {
+    font-size: 1em;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    font-style: italic;
+
+}
+
+.formacao {
+    background-color: var(--main-bg-color);
+    padding-bottom: 1em;
+    box-shadow: var(--shadow);
+}
 
 .titulo {
     text-align: center;
@@ -90,38 +135,64 @@ html, body, main {
 }
 
 .formacao__item {
-    background-color: aqua;
-    margin: 3em 1em 0 4em;
-    padding-left: 5em;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    margin: 5em 1em 7em 4em;
     display: flex;
     position: relative;
     min-height: 6.4em;
 }
 
+.formacao__item:nth-child(2) {
+    margin-top: 2em;
+}
+
 .formacao__info {
-    background-color: rgb(255, 2, 213);
     width: 100%;
-    padding: 1.5em 0em 1.5em 0em;
+    padding: 1.5em 0em 0em 0em;
 }
 
 .formacao__titulo {
     position: absolute;
-    left: 2.5em;
+    left: 3em;
     top: -0.8em;
-
-    background-color: red;
-
-    padding: 0.2em
+    padding: 0em 1em 0em 1em;
+    background: var(--main-bg-color);
 }
 
-.formacao__text {
-    background-color: chartreuse;
+.formacao__dataarea {
     height: 100%;
+    min-height: 10em;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+}
+
+.instituicao {
+    grid-column: 2 / 4;
+}
+
+.data {
+    list-style: none;
+    font-size: large;
+}
+
+.key {
+    font-weight: 800;
+}
+
+a.value:hover {
+    text-decoration: none;
+}
+
+.value {
+    /*     background-color: rgb(157, 170, 39)
+ */
 }
 
 .formacao_tagarea {
     position: absolute;
-    bottom: -1em;
+    bottom: -1.5em;
     right: 0em;
     width: 80%;
     display: flex;
@@ -131,21 +202,22 @@ html, body, main {
 }
 
 .tagarea__item {
-    background-color: rgb(58, 12, 0);
-    color: #fff;
     padding: 0.5em;
     border-radius: 100%;
-    margin: 0em 1em 0em 3em;
+    margin: 0em 1em 0em 1em;
+    color: var(--main-bg-color);
+    background-color: #fff;
+    font-size: 1.5em;
 }
 
 .formacao__icone {
     position: absolute;
-    top: 0em;
+    top: -1em;
     left: -1.5em;
-
-    background-color: rgb(184, 11, 161);
     padding: 1em;
     font-size: 2em;
     border-radius: 100%;
-    border: 3px solid #000;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: var(--main-bg-color);
 }
