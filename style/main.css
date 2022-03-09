@@ -27,15 +27,8 @@ body {
     background-color: var(--main-bg-color);
 }
 
-main {
-    margin-top: 4em;
-}
-
 .perfil {
     max-width: 100%;
-    background-color: var(--main-bg-color);
-    box-shadow: var(--shadow);
-    padding-bottom: 2em;
 }
 
 .perfil__info {
@@ -122,10 +115,11 @@ main {
 
 }
 
-.formacao {
+.page {
     background-color: var(--main-bg-color);
-    padding-bottom: 1em;
+    padding-bottom: 3em;
     box-shadow: var(--shadow);
+    margin-top: 5em;
 }
 
 .titulo {
@@ -145,6 +139,10 @@ main {
 
 .formacao__item:nth-child(2) {
     margin-top: 2em;
+}
+
+.formacao__item:nth-child(4) {
+    margin-bottom: 1em;
 }
 
 .formacao__info {
@@ -185,10 +183,7 @@ a.value:hover {
     text-decoration: none;
 }
 
-.value {
-    /*     background-color: rgb(157, 170, 39)
- */
-}
+/* .value {} */
 
 .formacao_tagarea {
     position: absolute;
@@ -221,3 +216,61 @@ a.value:hover {
     color: #fff;
     background-color: var(--main-bg-color);
 }
+
+/* .projeto {} */
+
+.projeto__area {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.projeto__tagarea {
+    position: absolute;
+    top: -1.5em;
+    right: 0;
+}
+
+.projeto__item {
+    display: flex;
+    flex-direction: column;
+    min-height: 20em;
+    margin: 2em;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.projeto__img {
+    flex-grow: 3;
+    background-image: url('/img/cadastro_pessoas.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 6px 10px 0px 0px;
+}
+
+.projeto__btn--github {
+    background-color: var(--main-bg-color);
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: larger;
+    padding: 0.5em;
+    border-radius: 0em 6px 0em 1em;
+    text-decoration: none;
+}
+
+.projeto__descricao {
+    position: relative;
+    background-color: var(--main-bg-color);
+    box-shadow: var(--shadow-2);
+    flex-grow: 2;
+    padding: 2em;
+    border-radius: 0px 0px 6px 6px;
+}
+
+.projeto__titulo {
+    text-align: center;
+}
+
+/* .projeto__descricao__paragrafo {} */
