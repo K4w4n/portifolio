@@ -188,7 +188,10 @@ a.value:hover {
     display: flex;
     flex-direction: row;
     justify-content: end;
+}
 
+.formacao_tagarea, .projeto__tagarea {
+    display: none;
 }
 
 .tagarea__item {
@@ -233,12 +236,40 @@ a.value:hover {
     box-shadow: var(--shadow);
 }
 
-.projeto__img {
+[class*="projeto__img"] {
+    transition: background-position-y 1s cubic-bezier(0.215, 0.610, 0.355, 1);
     flex-grow: 3;
-    background-image: url('../img/cadastro_pessoas.png');
+    background-image: url('../img/WinXP.png');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 6px 10px 0px 0px;
+    min-height: 7em;
+}
+
+[class*="--pessoaapp"] {
+    background-image: url('../img/cadastro_pessoas.png');
+}
+[class*="--ceos"] {
+    background-image: url('../img/ceos.png');
+}
+[class*="--portifolio"] {
+    background-image: url('../img/portifolio.png');
+}
+
+[class*="projeto__img"]:hover {
+    animation-name: bg-project;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bg-project {
+    0%, 100% {
+        background-position-y: 0%;
+    }
+
+    50% {
+        background-position-y: 100%;
+    }
 }
 
 .projeto__btn--github {
