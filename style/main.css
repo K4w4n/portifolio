@@ -117,9 +117,9 @@ body {
 
 .page {
     background-color: var(--main-bg-color);
-    padding-bottom: 3em;
+    padding: 3em;
     box-shadow: var(--shadow);
-    margin-top: 5em;
+    margin-bottom: 2em;
 }
 
 .titulo {
@@ -242,7 +242,7 @@ a.value:hover {
 
 .projeto__img {
     flex-grow: 3;
-    background-image: url('/img/cadastro_pessoas.png');
+    background-image: url('../img/cadastro_pessoas.png');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 6px 10px 0px 0px;
@@ -274,3 +274,44 @@ a.value:hover {
 }
 
 /* .projeto__descricao__paragrafo {} */
+
+.Skills {}
+
+.skill__titulo {}
+
+.skills__hard {}
+
+.skills__soft {}
+
+.skills__list {
+    counter-reset: li;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.skill {
+    list-style: none;
+    margin: 2em;
+    padding: 1em;
+    text-align: justify;
+    box-shadow: var(--shadow-2);
+}
+
+.skills__list>.skill::before {
+    content: '0'counter(li);
+    counter-increment: li;
+    font-size: 4em;
+    font-family: 'Open Sans';
+    letter-spacing: 0;
+}
+
+.skill__name {
+    font-family: system-ui;
+    font-weight: 700;
+    font-size: 2em;
+    display: inline;
+}
+
+.skill__text {
+    display: block;
+}
