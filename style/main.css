@@ -18,6 +18,7 @@
 html, body, main {
     min-width: 100%;
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -72,6 +73,7 @@ body {
 }
 
 .contatos {
+    transition: transform 1s;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -204,6 +206,7 @@ a.value:hover {
 }
 
 .formacao__icone {
+    transition: transform 1.5s cubic-bezier(0.58, 0.43, 0.75, 1.46);
     position: absolute;
     top: -1.5em;
     left: -1.5em;
@@ -213,6 +216,10 @@ a.value:hover {
     border: 1px solid #fff;
     color: #fff;
     background-color: var(--main-bg-color);
+}
+
+.formacao__icone:hover {
+    transform: rotate(360deg);
 }
 
 .projeto__area {
@@ -234,6 +241,8 @@ a.value:hover {
     margin: 2em;
     position: relative;
     box-shadow: var(--shadow);
+    transition-property: transform;
+    transition-duration: 0.5s;
 }
 
 [class*="projeto__img"] {
@@ -275,11 +284,12 @@ a.value:hover {
 }
 
 .projeto__btn--github {
-    background-color: var(--main-bg-color);
+    transition: background-color 0.5s;
+    background-color: #1a1a1b;
     padding: 2px;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -1px;
+    top: -1px;
     font-size: larger;
     padding: 0.5em;
     border-radius: 0em 6px 0em 1em;
@@ -306,6 +316,7 @@ a.value:hover {
 }
 
 .skill {
+    transition: transform 1s;
     list-style: none;
     margin: 2em;
     padding: 1em;
@@ -438,5 +449,18 @@ a.value:hover {
 
     .skill {
         margin: 0.5em 0.5em 2em 0.5em;
+    }
+    .projeto__descricao{
+        padding: 5px;
+    }
+}
+
+@media (pointer: fine) {
+    .projeto__item:hover, .skill:hover, .contatos:hover {
+        transform: scale(1.1);
+    }
+
+    .projeto__btn--github:hover {
+        background-color: #0e0e0e;
     }
 }
