@@ -114,7 +114,7 @@ body {
 
 .page {
     background-color: var(--main-bg-color);
-    padding: 3em;
+    padding: 0em 3em 2em 3em;
     box-shadow: var(--shadow);
     margin-bottom: 2em;
 }
@@ -150,7 +150,7 @@ body {
     position: absolute;
     left: 3em;
     top: -0.8em;
-    padding: 0em 1em 0em 1em;
+    padding: 0em 0.5em 0em 0.5em;
     background: var(--main-bg-color);
 }
 
@@ -249,9 +249,11 @@ a.value:hover {
 [class*="--pessoaapp"] {
     background-image: url('../img/cadastro_pessoas.png');
 }
+
 [class*="--ceos"] {
     background-image: url('../img/ceos.png');
 }
+
 [class*="--portifolio"] {
     background-image: url('../img/portifolio.png');
 }
@@ -307,8 +309,12 @@ a.value:hover {
     list-style: none;
     margin: 2em;
     padding: 1em;
-    text-align: justify;
     box-shadow: var(--shadow-2);
+}
+
+.skill__titulo {
+    margin-top: 1em;
+    text-align: center;
 }
 
 .skills__list>.skill::before {
@@ -349,6 +355,10 @@ a.value:hover {
         flex-direction: column;
     }
 
+    .info__foto {
+        width: 20em;
+    }
+
     .projeto__area {
         grid-template-columns: auto;
     }
@@ -356,9 +366,7 @@ a.value:hover {
     .skills__list {
         grid-template-columns: auto;
     }
-}
 
-@media screen and (max-width:810px) {
     .formacao__dataarea {
         padding: 1em;
         display: block;
@@ -371,7 +379,9 @@ a.value:hover {
     .data {
         padding: 1em 0em 0em 0em;
     }
+}
 
+@media screen and (max-width:810px) {
     .formacao__info {
         padding-top: 1em;
     }
@@ -379,7 +389,7 @@ a.value:hover {
 
 @media screen and (max-width:700px) {
     .page {
-        padding: 0px;
+        padding: 0px 0px 3em 0px;
     }
 
     .perfil__info {
@@ -395,10 +405,38 @@ a.value:hover {
         margin-bottom: 2em;
         width: 95%;
     }
+
+    .formacao__item {
+        margin: 5em 0.5em 7em 0.5em;
+    }
+
+    .formacao__icone {
+        bottom: -1.5em;
+        right: 0.5em;
+        top: auto;
+        left: auto;
+    }
+
+    .formacao__dataarea {
+        padding-bottom: 2em;
+    }
+
+    .formacao__titulo {
+        left: 0.5em;
+    }
+
 }
 
 @media screen and (max-width:500px) {
     .info__foto {
-        width: 95%;
+        width: 80%;
+    }
+
+    .projeto__item {
+        margin: 0.5em 0.5em 2em 0.5em;
+    }
+
+    .skill {
+        margin: 0.5em 0.5em 2em 0.5em;
     }
 }
