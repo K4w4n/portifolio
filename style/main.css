@@ -47,6 +47,7 @@ body {
     flex-grow: 4;
     display: flex;
     flex-direction: column;
+    margin-left: 1em;
 }
 
 .info__foto {
@@ -58,7 +59,7 @@ body {
 }
 
 .apresentacao__areatexto {
-    padding: 1em;
+    padding: 1em 1em 1em 0em;
     flex-grow: 3;
 }
 
@@ -83,7 +84,7 @@ body {
     background-color: #111429;
     border-radius: 6px;
     border: 1px solid #fff;
-    align-self: flex-end;
+    align-self: start;
     margin-right: 2em;
 }
 
@@ -248,23 +249,11 @@ a.value:hover {
 [class*="projeto__img"] {
     transition: background-position-y 1s cubic-bezier(0.215, 0.610, 0.355, 1);
     flex-grow: 3;
-    background-image: url('../img/WinXP.png');
+    background-image: var(--bg-image);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 6px 10px 0px 0px;
     min-height: 7em;
-}
-
-[class*="--pessoaapp"] {
-    background-image: url('../img/cadastro_pessoas.png');
-}
-
-[class*="--ceos"] {
-    background-image: url('../img/ceos.png');
-}
-
-[class*="--portifolio"] {
-    background-image: url('../img/portifolio.png');
 }
 
 [class*="projeto__img"]:hover {
@@ -302,11 +291,13 @@ a.value:hover {
     box-shadow: var(--shadow-2);
     flex-grow: 2;
     padding: 2em;
+    padding-top: 1em;
     border-radius: 0px 0px 6px 6px;
 }
 
 .projeto__titulo {
     text-align: center;
+    margin-bottom: 0.5em;
 }
 
 .skills__list {
@@ -370,6 +361,10 @@ a.value:hover {
         width: 20em;
     }
 
+    .perfil__frase{
+        width: 75%;
+    }
+
     .projeto__area {
         grid-template-columns: auto;
     }
@@ -404,7 +399,7 @@ a.value:hover {
     }
 
     .perfil__info {
-        margin: 0px;
+        margin: 1em 0em 0em 0em;
     }
 
     .info__foto {
@@ -450,7 +445,8 @@ a.value:hover {
     .skill {
         margin: 0.5em 0.5em 2em 0.5em;
     }
-    .projeto__descricao{
+
+    .projeto__descricao {
         padding: 5px;
     }
 }
