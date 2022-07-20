@@ -170,16 +170,29 @@ body {
     justify-content: space-between;
 }
 
-.ver-mais-btn,
+.ver-pagina-btn,
 .git-btn {
+    transition: background-color 0.5s;
     padding: 0.5em;
     color: #fff;
     width: 45%;
     border-radius: .3em;
 }
 
-.ver-mais-btn {
+.ver-pagina-btn {
     background-color: #0C17B2;
+}
+
+.ver-pagina-btn:hover {
+    background-color: #0b1388;
+}
+
+.git-btn {
+    background-color: #242424;
+}
+
+.git-btn:hover {
+    background-color: #111111;
 }
 
 footer {
@@ -189,11 +202,6 @@ footer {
     align-items: center;
     color: #353535;
     box-shadow: var(--box-shadow);
-}
-
-.git-btn {
-    background-color: #242424;
-
 }
 
 .--row {
