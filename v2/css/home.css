@@ -1,0 +1,213 @@
+* {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+    --box-shadow: inset 0px 0px 9px 0px #000;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.header,
+.main,
+.projeto {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-image: url(../img/working-on-code-slin.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: opacity(5);
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.frase-perfil {
+    background-color: #fff;
+    color: #353535;
+    padding: 3em;
+    text-align: center;
+    margin: 0em 0em 5em 0em;
+    box-shadow: var(--box-shadow);
+}
+
+.nome-perfil,
+.profissao-perfil {
+    margin-top: .5em;
+    color: #fff;
+}
+
+.nome-perfil {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.profissao-perfil {
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+.contatos-perfil {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 15em;
+}
+
+.contato-perfil {
+    /* Me delete */
+    background-color: aliceblue;
+    width: 50px;
+    height: 50px;
+    margin: 0 0.5em 0 0.5em;
+    border-radius: 1000px;
+}
+
+.foto-perfil {
+    border-radius: 100%;
+    width: 15em;
+    height: auto;
+}
+
+
+.projeto {
+    display: flex;
+    flex-direction: row;
+    box-shadow: var(--box-shadow);
+}
+
+.celular-projeto {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-celular {
+    --celular-width: 20vw;
+    --celular-height: calc(var(--celular-width) * 2.5);
+    position: relative;
+    width: var(--celular-width);
+    height: var(--celular-height);
+}
+
+.imagem-celular {
+    transition: object-position 5s;
+
+    top: 2%;
+    right: 5%;
+
+    width: 91%;
+    height: 97%;
+
+    border-radius: 5px;
+
+    object-fit: cover;
+    object-position: center top;
+
+    position: absolute;
+}
+
+.display-celular:hover .imagem-celular {
+    object-position: center bottom;
+}
+
+.celular-01,
+.celular-02 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../img/Celular.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.projeto-titulo {
+    font-size: xx-large;
+
+}
+
+.conteudo-projeto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 73%;
+    /* box-shadow: var(--box-shadow); */
+}
+
+.descricao-projeto {
+    padding: 2em;
+}
+
+.button-box {
+    width: 15em;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ver-mais-btn,
+.git-btn {
+    padding: 0.5em;
+    color: #fff;
+    width: 45%;
+    border-radius: .3em;
+}
+
+.ver-mais-btn {
+    background-color: #0C17B2;
+}
+
+footer {
+    min-height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #353535;
+    box-shadow: var(--box-shadow);
+}
+
+.git-btn {
+    background-color: #242424;
+
+}
+
+.--row {
+    flex-direction: row;
+}
+
+.--row-reverse {
+    flex-direction: row-reverse;
+}
+
+.--bg-grey {
+    background-color: #353535;
+}
+
+.--bg-blue {
+    background-color: #2F50F5;
+}
