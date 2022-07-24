@@ -116,6 +116,7 @@ body {
 }
 
 .display-celular {
+    max-height: 75vh;
     --celular-width: 19em;
     --celular-height: calc(var(--celular-width) * 2.5);
     position: relative;
