@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-image: url(../img/working-on-code-slin.jpg);
+    background-image: url(../img/working-on-code-slin-escuro.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     filter: opacity(5);
