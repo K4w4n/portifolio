@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kawan Araújo — Desenvolvedor Fullstack</title>
+  <meta name="description" content="Portfólio de Kawan Araújo, Desenvolvedor Fullstack especializado em Next.js, NestJS e TypeScript." />
+
+  <!-- Google Fonts: Space Grotesk + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuração do Tailwind com identidade visual -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mel:     '#F5C518',
+            polen:   '#E8A900',
+            cera:    '#FFF3B0',
+            colmeia: '#1A1A1A',
+            abelha:  '#2C2C2C',
+            favo:    '#3A3A3A',
+          },
+          fontFamily: {
+            titulo: ['Space Grotesk', 'sans-serif'],
+            corpo:  ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/e728814d1c.js" crossorigin="anonymous"></script>
+
+  <!-- Estilos globais inline mínimos para clip-path hexagonal -->
+  <style>
+    .hex-clip {
+      clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    }
+    .hex-wrapper {
+      clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    }
+  </style>
+</head>
+
+<body class="bg-colmeia text-gray-100 font-corpo antialiased">
+
+  <!-- ============================================================
+       HEADER — Navbar fixa com blur
+  ============================================================ -->
+  <header
+    id="navbar"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-colmeia/80 border-b border-favo"
+  >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo KA -->
+        <a href="#hero" class="font-titulo font-bold text-2xl text-mel tracking-widest select-none">
+          KA
+        </a>
+
+        <!-- Nav desktop -->
+        <nav aria-label="Navegação principal" class="hidden md:flex items-center gap-8">
+          <a href="#sobre"      class="text-gray-400 hover:text-mel transition-colors duration-200 text-sm font-medio">Sobre</a>
+          <a href="#habilidades" class="text-gray-400 hover:text-mel transition-colors duration-200 text-sm">Habilidades</a>
+          <a href="#projetos"   class="text-gray-400 hover:text-mel transition-colors duration-200 text-sm">Projetos</a>
+          <a href="#experiencia" class="text-gray-400 hover:text-mel transition-colors duration-200 text-sm">Experiência</a>
+          <a href="#contato"    class="text-gray-400 hover:text-mel transition-colors duration-200 text-sm">Contato</a>
+        </nav>
+
+        <!-- Botão hamburger mobile -->
+        <button
+          id="btn-menu"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="menu-mobile"
+          class="md:hidden flex flex-col gap-1.5 p-2 rounded focus:outline-none focus:ring-2 focus:ring-mel"
+        >
+          <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300" id="ham-1"></span>
+          <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300" id="ham-2"></span>
+          <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300" id="ham-3"></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <nav
+      id="menu-mobile"
+      aria-label="Navegação mobile"
+      class="hidden md:hidden bg-abelha border-t border-favo"
+    >
+      <ul class="flex flex-col px-4 py-4 gap-4">
+        <li><a href="#sobre"       class="block text-gray-300 hover:text-mel transition-colors py-1" onclick="fecharMenu()">Sobre</a></li>
+        <li><a href="#habilidades" class="block text-gray-300 hover:text-mel transition-colors py-1" onclick="fecharMenu()">Habilidades</a></li>
+        <li><a href="#projetos"    class="block text-gray-300 hover:text-mel transition-colors py-1" onclick="fecharMenu()">Projetos</a></li>
+        <li><a href="#experiencia" class="block text-gray-300 hover:text-mel transition-colors py-1" onclick="fecharMenu()">Experiência</a></li>
+        <li><a href="#contato"     class="block text-gray-300 hover:text-mel transition-colors py-1" onclick="fecharMenu()">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       MAIN — Conteúdo principal
+  ============================================================ -->
+  <main>
+
+    <!-- ====================================================
+         HERO — Apresentação
+    ==================================================== -->
+    <section
+      id="hero"
+      class="bg-colmeia min-h-screen flex items-center pt-16"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+
+          <!-- Texto -->
+          <div class="flex-1 text-center md:text-left animate-entry opacity-0 translate-y-4 transition-all duration-700">
+            <p class="text-gray-400 text-lg mb-2 font-corpo">Me chamo Kawan Araújo,</p>
+            <h1 class="font-titulo text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+              Desenvolvedor <span class="text-mel">Fullstack</span>
+            </h1>
+            <p class="text-gray-400 text-lg sm:text-xl mb-8 max-w-lg mx-auto md:mx-0">
+              Construindo soluções que fazem a diferença — linha por linha.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a
+                href="#projetos"
+                class="bg-mel text-colmeia font-titulo font-semibold px-6 py-3 rounded-lg hover:bg-polen transition-colors duration-200 text-center"
+              >
+                Ver Projetos
+              </a>
+              <a
+                href="#contato"
+                class="border border-mel text-mel font-titulo font-semibold px-6 py-3 rounded-lg hover:bg-mel/10 transition-colors duration-200 text-center"
+              >
+                Entre em contato
+              </a>
+            </div>
+          </div>
+
+          <!-- Foto hexagonal -->
+          <div class="flex-shrink-0 animate-entry opacity-0 translate-y-4 transition-all duration-700 delay-200">
+            <!-- Wrapper externo: borda amarela em hexágono -->
+            <div class="hex-wrapper bg-mel p-1 w-52 h-52 sm:w-60 sm:h-60">
+              <!-- Imagem interna -->
+              <div class="hex-clip w-full h-full overflow-hidden">
+                <img
+                  src="https://placehold.co/200x200/2C2C2C/F5C518?text=KA"
+                  alt="Foto de perfil de Kawan Araújo"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SOBRE — Apresentação pessoal
+    ==================================================== -->
+    <section
+      id="sobre"
+      class="bg-abelha py-20"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Título de seção com borda esquerda amarela -->
+        <h2 class="font-titulo text-3xl font-bold mb-10 border-l-4 border-mel pl-4 animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          Sobre mim
+        </h2>
+
+        <div class="animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          <p class="text-gray-300 text-lg leading-relaxed mb-6 max-w-3xl">
+            Sou um desenvolvedor fullstack apaixonado por tecnologia e pela arte de transformar ideias em produtos reais.
+            Com mentalidade de <em class="text-mel not-italic font-semibold">worker bee</em> — foco, consistência e entrega —
+            enfrento desafios complexos com o mesmo entusiasmo de quem está resolvendo um puzzle.
+          </p>
+          <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-3xl">
+            Ao longo da minha trajetória evolui de desenvolvedor júnior a líder técnico, sempre buscando elevar a qualidade
+            do código e o crescimento do time. Acredito que boas soluções nascem da combinação entre código limpo,
+            colaboração e visão de negócio.
+          </p>
+
+          <!-- Badges de perfil -->
+          <ul class="flex flex-wrap gap-3" aria-label="Perfis profissionais">
+            <li class="bg-favo text-mel font-titulo font-semibold px-4 py-2 rounded-full text-sm border border-mel/30">
+              Fullstack
+            </li>
+            <li class="bg-favo text-mel font-titulo font-semibold px-4 py-2 rounded-full text-sm border border-mel/30">
+              Líder Técnico
+            </li>
+            <li class="bg-favo text-mel font-titulo font-semibold px-4 py-2 rounded-full text-sm border border-mel/30">
+              Next.js
+            </li>
+            <li class="bg-favo text-mel font-titulo font-semibold px-4 py-2 rounded-full text-sm border border-mel/30">
+              Problem Solver
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         HABILIDADES — Stack técnica
+    ==================================================== -->
+    <section
+      id="habilidades"
+      class="bg-colmeia py-20"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <h2 class="font-titulo text-3xl font-bold mb-10 border-l-4 border-mel pl-4 animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          Habilidades
+        </h2>
+
+        <!-- Grid de 3 categorias -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Frontend -->
+          <article
+            class="animate-entry opacity-0 translate-y-4 transition-all duration-700 bg-abelha rounded-xl p-6 border border-favo hover:border-mel hover:shadow-lg hover:shadow-mel/10 transition-all"
+            aria-label="Habilidades de Frontend"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <i class="fa-solid fa-display text-mel text-xl" aria-hidden="true"></i>
+              <h3 class="font-titulo text-xl font-semibold text-white">Frontend</h3>
+            </div>
+            <ul class="flex flex-wrap gap-2">
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">Next.js</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">React</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">TypeScript</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">JavaScript</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">HTML</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">CSS</li>
+            </ul>
+          </article>
+
+          <!-- Backend -->
+          <article
+            class="animate-entry opacity-0 translate-y-4 transition-all duration-700 bg-abelha rounded-xl p-6 border border-favo hover:border-mel hover:shadow-lg hover:shadow-mel/10 transition-all"
+            aria-label="Habilidades de Backend"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <i class="fa-solid fa-server text-mel text-xl" aria-hidden="true"></i>
+              <h3 class="font-titulo text-xl font-semibold text-white">Backend</h3>
+            </div>
+            <ul class="flex flex-wrap gap-2">
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">Nest.js</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">Node.js</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">Python</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">REST API</li>
+            </ul>
+          </article>
+
+          <!-- Ferramentas -->
+          <article
+            class="animate-entry opacity-0 translate-y-4 transition-all duration-700 bg-abelha rounded-xl p-6 border border-favo hover:border-mel hover:shadow-lg hover:shadow-mel/10 transition-all"
+            aria-label="Ferramentas e DevOps"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <i class="fa-solid fa-wrench text-mel text-xl" aria-hidden="true"></i>
+              <h3 class="font-titulo text-xl font-semibold text-white">Ferramentas</h3>
+            </div>
+            <ul class="flex flex-wrap gap-2">
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">Git</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">Docker</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">PostgreSQL</li>
+              <li class="bg-favo text-gray-300 rounded-full px-3 py-1 text-sm">Linux</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         PROJETOS — Trabalhos em destaque
+    ==================================================== -->
+    <section
+      id="projetos"
+      class="bg-abelha py-20"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <h2 class="font-titulo text-3xl font-bold mb-10 border-l-4 border-mel pl-4 animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          Projetos
+        </h2>
+
+        <!-- Grid de projetos -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Projeto 1: TaskFlow -->
+          <article
+            class="animate-entry opacity-0 translate-y-4 transition-all duration-700 bg-favo rounded-xl border border-favo hover:border-mel hover:shadow-lg hover:shadow-mel/10 transition-all flex flex-col"
+            aria-label="Projeto TaskFlow"
+          >
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-table-columns text-mel" aria-hidden="true"></i>
+                <h3 class="font-titulo text-xl font-semibold text-white">TaskFlow</h3>
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+                Gerenciador de tarefas com quadros kanban, arrastar e soltar, e controle de sprints em tempo real.
+              </p>
+              <!-- Badges de tecnologia -->
+              <ul class="flex flex-wrap gap-2 mb-5" aria-label="Tecnologias utilizadas">
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">Next.js</li>
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">NestJS</li>
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">PostgreSQL</li>
+              </ul>
+              <!-- Botões -->
+              <div class="flex gap-3">
+                <a href="#" class="flex items-center gap-2 text-sm text-gray-300 hover:text-mel transition-colors border border-favo hover:border-mel rounded-lg px-4 py-2">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm text-gray-300 hover:text-mel transition-colors border border-favo hover:border-mel rounded-lg px-4 py-2">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 2: PyAnalytics -->
+          <article
+            class="animate-entry opacity-0 translate-y-4 transition-all duration-700 bg-favo rounded-xl border border-favo hover:border-mel hover:shadow-lg hover:shadow-mel/10 transition-all flex flex-col"
+            aria-label="Projeto PyAnalytics"
+          >
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-chart-line text-mel" aria-hidden="true"></i>
+                <h3 class="font-titulo text-xl font-semibold text-white">PyAnalytics</h3>
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+                Dashboard de análise de dados em tempo real com gráficos interativos e ingestão de dados via streaming.
+              </p>
+              <ul class="flex flex-wrap gap-2 mb-5" aria-label="Tecnologias utilizadas">
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">Python</li>
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">FastAPI</li>
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">React</li>
+              </ul>
+              <div class="flex gap-3">
+                <a href="#" class="flex items-center gap-2 text-sm text-gray-300 hover:text-mel transition-colors border border-favo hover:border-mel rounded-lg px-4 py-2">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm text-gray-300 hover:text-mel transition-colors border border-favo hover:border-mel rounded-lg px-4 py-2">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 3: AuthKit -->
+          <article
+            class="animate-entry opacity-0 translate-y-4 transition-all duration-700 bg-favo rounded-xl border border-favo hover:border-mel hover:shadow-lg hover:shadow-mel/10 transition-all flex flex-col"
+            aria-label="Projeto AuthKit"
+          >
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-shield-halved text-mel" aria-hidden="true"></i>
+                <h3 class="font-titulo text-xl font-semibold text-white">AuthKit</h3>
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+                Biblioteca de autenticação JWT com suporte a refresh tokens, blacklist por Redis e middleware plug-and-play.
+              </p>
+              <ul class="flex flex-wrap gap-2 mb-5" aria-label="Tecnologias utilizadas">
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">Node.js</li>
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">TypeScript</li>
+                <li class="bg-abelha text-mel text-xs rounded-full px-3 py-1 border border-mel/20">Redis</li>
+              </ul>
+              <div class="flex gap-3">
+                <a href="#" class="flex items-center gap-2 text-sm text-gray-300 hover:text-mel transition-colors border border-favo hover:border-mel rounded-lg px-4 py-2">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm text-gray-300 hover:text-mel transition-colors border border-favo hover:border-mel rounded-lg px-4 py-2">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         EXPERIÊNCIA — Linha do tempo profissional
+    ==================================================== -->
+    <section
+      id="experiencia"
+      class="bg-colmeia py-20"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <h2 class="font-titulo text-3xl font-bold mb-12 border-l-4 border-mel pl-4 animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          Experiência
+        </h2>
+
+        <!-- Timeline vertical -->
+        <ol class="relative border-l-2 border-mel ml-4 sm:ml-8 space-y-10" aria-label="Linha do tempo de experiência">
+
+          <!-- Item 1 -->
+          <li class="animate-entry opacity-0 translate-y-4 transition-all duration-700 ml-6">
+            <!-- Marcador circular -->
+            <span class="absolute -left-[9px] flex items-center justify-center w-4 h-4 rounded-full bg-mel ring-4 ring-colmeia" aria-hidden="true"></span>
+            <article>
+              <time datetime="2020" class="text-mel text-sm font-titulo font-semibold">2020</time>
+              <h3 class="font-titulo text-xl font-semibold text-white mt-1">Desenvolvedor Junior</h3>
+              <p class="text-gray-400 text-sm mb-2">TechCorp</p>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Desenvolvimento de features em aplicações React, correção de bugs e escrita de testes unitários.
+                Primeiro contato com ambientes de produção e metodologias ágeis.
+              </p>
+            </article>
+          </li>
+
+          <!-- Item 2 -->
+          <li class="animate-entry opacity-0 translate-y-4 transition-all duration-700 ml-6">
+            <span class="absolute -left-[9px] flex items-center justify-center w-4 h-4 rounded-full bg-mel ring-4 ring-colmeia" aria-hidden="true"></span>
+            <article>
+              <time datetime="2021" class="text-mel text-sm font-titulo font-semibold">2021</time>
+              <h3 class="font-titulo text-xl font-semibold text-white mt-1">Desenvolvedor Pleno</h3>
+              <p class="text-gray-400 text-sm mb-2">TechCorp</p>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Arquitetura de microsserviços com Node.js e NestJS, integração de APIs externas e mentoria de
+                estagiários. Liderança técnica pontual em entregas críticas.
+              </p>
+            </article>
+          </li>
+
+          <!-- Item 3 -->
+          <li class="animate-entry opacity-0 translate-y-4 transition-all duration-700 ml-6">
+            <span class="absolute -left-[9px] flex items-center justify-center w-4 h-4 rounded-full bg-mel ring-4 ring-colmeia" aria-hidden="true"></span>
+            <article>
+              <time datetime="2022" class="text-mel text-sm font-titulo font-semibold">2022</time>
+              <h3 class="font-titulo text-xl font-semibold text-white mt-1">Desenvolvedor Sênior</h3>
+              <p class="text-gray-400 text-sm mb-2">TechCorp</p>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Definição de padrões de código, revisão técnica de pull requests, reestruturação de banco de dados
+                e redução de 40% no tempo de resposta das APIs principais.
+              </p>
+            </article>
+          </li>
+
+          <!-- Item 4 -->
+          <li class="animate-entry opacity-0 translate-y-4 transition-all duration-700 ml-6">
+            <span class="absolute -left-[9px] flex items-center justify-center w-4 h-4 rounded-full bg-mel ring-4 ring-colmeia" aria-hidden="true"></span>
+            <article>
+              <time datetime="2023" class="text-mel text-sm font-titulo font-semibold">2023 — hoje</time>
+              <h3 class="font-titulo text-xl font-semibold text-white mt-1">Líder de Desenvolvimento</h3>
+              <p class="text-gray-400 text-sm mb-2">TechCorp</p>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Gestão técnica de equipe multidisciplinar, planejamento de sprints, tomada de decisões arquiteturais
+                e alinhamento entre produto e engenharia para entregas de alto impacto.
+              </p>
+            </article>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         CONTATO — Canais de comunicação
+    ==================================================== -->
+    <section
+      id="contato"
+      class="bg-abelha py-20"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        <h2 class="font-titulo text-3xl font-bold mb-4 border-l-4 border-mel pl-4 text-left animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          Contato
+        </h2>
+
+        <p class="text-gray-300 text-xl sm:text-2xl font-titulo mb-12 animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          Vamos construir algo juntos?
+        </p>
+
+        <!-- Links de contato — clique para copiar -->
+        <ul class="flex flex-col sm:flex-row justify-center items-center gap-8 animate-entry opacity-0 translate-y-4 transition-all duration-700">
+          <li>
+            <button
+              type="button"
+              data-copiar="contato@k4w4n.dev.br"
+              class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
+              aria-label="Copiar e-mail de Kawan Araújo"
+            >
+              <i class="fa-solid fa-envelope text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+              <span class="text-sm sm:text-base">contato@k4w4n.dev.br</span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-copiar="https://github.com/k4w4n"
+              class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
+              aria-label="Copiar link do GitHub de Kawan Araújo"
+            >
+              <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+              <span class="text-sm sm:text-base">github.com/k4w4n</span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-copiar="https://www.linkedin.com/in/k4w4n/"
+              class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
+              aria-label="Copiar link do LinkedIn de Kawan Araújo"
+            >
+              <i class="fa-brands fa-linkedin text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+              <span class="text-sm sm:text-base">linkedin.com/in/k4w4n</span>
+            </button>
+          </li>
+        </ul>
+
+        <!-- Toast de feedback -->
+        <div
+          id="toast-copiado"
+          class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-mel text-colmeia font-titulo font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300"
+          aria-live="polite"
+        >
+          Copiado!
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="bg-colmeia border-t border-favo py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-500 text-sm">
+        Feito com ☕ por Kawan Araújo · 2026
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script principal -->
+  <script src="script/main.js"></script>
+
+</body>
+</html>
