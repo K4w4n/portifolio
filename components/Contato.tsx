@@ -94,26 +94,24 @@ export default function Contato() {
                   </button>
                 </li>
                 <li>
-                  <button
-                    type="button"
-                    onClick={() => copiarParaClipboard('https://github.com/k4w4n')}
+                  <a
+                    target="_blank"
+                    href='https://github.com/k4w4n'
                     className="flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
-                    aria-label="Copiar link do GitHub de Kawan Araújo"
                   >
                     <i className="fa-brands fa-github text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
                     <span className="text-sm sm:text-base">github.com/k4w4n</span>
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button
-                    type="button"
-                    onClick={() => copiarParaClipboard('https://www.linkedin.com/in/k4w4n/')}
+                  <a
+                    target="_blank"
+                    href='https://www.linkedin.com/in/k4w4n/'
                     className="flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
-                    aria-label="Copiar link do LinkedIn de Kawan Araújo"
-                  >
+                    >
                     <i className="fa-brands fa-linkedin text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
                     <span className="text-sm sm:text-base">linkedin.com/in/k4w4n</span>
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
