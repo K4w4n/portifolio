@@ -450,52 +450,120 @@
       id="contato"
       class="bg-abelha py-20"
     >
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <h2 class="font-titulo text-3xl font-bold mb-4 border-l-4 border-mel pl-4 text-left animate-entry opacity-0 translate-y-4 transition-all duration-700">
+        <h2 class="font-titulo text-3xl font-bold mb-12 border-l-4 border-mel pl-4 animate-entry opacity-0 translate-y-4 transition-all duration-700">
           Contato
         </h2>
 
-        <p class="text-gray-300 text-xl sm:text-2xl font-titulo mb-12 animate-entry opacity-0 translate-y-4 transition-all duration-700">
-          Vamos construir algo juntos?
-        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start animate-entry opacity-0 translate-y-4 transition-all duration-700">
 
-        <!-- Links de contato — clique para copiar -->
-        <ul class="flex flex-col sm:flex-row justify-center items-center gap-8 animate-entry opacity-0 translate-y-4 transition-all duration-700">
-          <li>
-            <button
-              type="button"
-              data-copiar="contato@kawan.dev.br"
-              class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
-              aria-label="Copiar e-mail de Kawan Araújo"
+          <!-- Lado esquerdo: CTA + links -->
+          <div>
+            <p class="text-gray-100 text-2xl sm:text-3xl font-titulo font-bold mb-4">
+              Vamos construir algo juntos?
+            </p>
+            <p class="text-gray-400 text-base mb-10 leading-relaxed">
+              Estou disponível para novos projetos, freelas e oportunidades. Me manda uma mensagem ou entre em contato pelos canais abaixo.
+            </p>
+
+            <ul class="flex flex-col gap-5" aria-label="Canais de contato">
+              <li>
+                <button
+                  type="button"
+                  data-copiar="contato@kawan.dev.br"
+                  class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
+                  aria-label="Copiar e-mail de Kawan Araújo"
+                >
+                  <i class="fa-solid fa-envelope text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                  <span class="text-sm sm:text-base">contato@kawan.dev.br</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  data-copiar="https://github.com/k4w4n"
+                  class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
+                  aria-label="Copiar link do GitHub de Kawan Araújo"
+                >
+                  <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                  <span class="text-sm sm:text-base">github.com/k4w4n</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  data-copiar="https://www.linkedin.com/in/k4w4n/"
+                  class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
+                  aria-label="Copiar link do LinkedIn de Kawan Araújo"
+                >
+                  <i class="fa-brands fa-linkedin text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                  <span class="text-sm sm:text-base">linkedin.com/in/k4w4n</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Lado direito: formulário -->
+          <div class="bg-favo rounded-xl border border-favo p-8">
+            <form
+              action="https://formspree.io/f/mvzwyybl"
+              method="POST"
+              class="flex flex-col gap-5"
             >
-              <i class="fa-solid fa-envelope text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
-              <span class="text-sm sm:text-base">contato@kawan.dev.br</span>
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              data-copiar="https://github.com/k4w4n"
-              class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
-              aria-label="Copiar link do GitHub de Kawan Araújo"
-            >
-              <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
-              <span class="text-sm sm:text-base">github.com/k4w4n</span>
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              data-copiar="https://www.linkedin.com/in/k4w4n/"
-              class="copiar-contato flex items-center gap-3 text-gray-400 hover:text-mel transition-colors duration-200 group cursor-pointer"
-              aria-label="Copiar link do LinkedIn de Kawan Araújo"
-            >
-              <i class="fa-brands fa-linkedin text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
-              <span class="text-sm sm:text-base">linkedin.com/in/k4w4n</span>
-            </button>
-          </li>
-        </ul>
+              <div class="flex flex-col gap-1.5">
+                <label for="nome" class="text-gray-300 text-sm font-titulo font-medium">Nome</label>
+                <input
+                  id="nome"
+                  type="text"
+                  name="nome"
+                  required
+                  placeholder="Seu nome completo"
+                  class="bg-abelha border border-favo rounded-lg px-4 py-3 text-gray-100 text-sm placeholder-gray-600 focus:outline-none focus:border-mel transition-colors duration-200"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="email" class="text-gray-300 text-sm font-titulo font-medium">E-mail</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="voce@exemplo.com"
+                  class="bg-abelha border border-favo rounded-lg px-4 py-3 text-gray-100 text-sm placeholder-gray-600 focus:outline-none focus:border-mel transition-colors duration-200"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="telefone" class="text-gray-300 text-sm font-titulo font-medium">Telefone <span class="text-gray-600 font-normal">(opcional)</span></label>
+                <input
+                  id="telefone"
+                  type="tel"
+                  name="telefone"
+                  placeholder="(00) 00000-0000"
+                  class="bg-abelha border border-favo rounded-lg px-4 py-3 text-gray-100 text-sm placeholder-gray-600 focus:outline-none focus:border-mel transition-colors duration-200"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="message" class="text-gray-300 text-sm font-titulo font-medium">Mensagem</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="4"
+                  placeholder="Olá, gostaria de conversar sobre..."
+                  class="bg-abelha border border-favo rounded-lg px-4 py-3 text-gray-100 text-sm placeholder-gray-600 focus:outline-none focus:border-mel transition-colors duration-200 resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="bg-mel text-colmeia font-titulo font-semibold px-6 py-3 rounded-lg hover:bg-polen transition-colors duration-200 text-sm"
+              >
+                Enviar mensagem
+              </button>
+            </form>
+          </div>
+
+        </div>
 
         <!-- Toast de feedback -->
         <div
