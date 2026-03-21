@@ -13,6 +13,18 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
+      - name: Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build Next.js (static export)
+        run: npm run build
+
       - name: Enviar arquivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -20,10 +32,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./out/
           exclude: |
             **/.git*
             **/.git*/**
-            **/node_modules/**
-            .github/**
-            identidade-visual.md
-            README.md
