@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
-
+import logo from "../img/logo.svg";
+console.log({logo});
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   description:
     'Portfólio de Kawan Araújo, Desenvolvedor Fullstack especializado em Next.js, NestJS e TypeScript.',
   icons: {
-    icon: '/img/logo.svg',
+    icon: logo.src,
   },
 }
 
