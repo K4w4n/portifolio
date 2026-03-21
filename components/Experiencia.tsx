@@ -63,7 +63,7 @@ export default function Experiencia() {
               <li className="ml-6">
                 {/* Marcador circular */}
                 <span
-                  className="absolute -left-[2.1rem] flex items-center justify-center w-4 h-4 rounded-full bg-mel ring-8 ring-colmeia"
+                  className="absolute -left-[0.6rem] flex items-center justify-center w-4 h-4 rounded-full bg-mel ring-8 ring-colmeia"
                   aria-hidden="true"
                 />
                 <article>
