@@ -3,7 +3,7 @@ import { Space_Grotesk, Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import logo from "../img/logo.svg";
-console.log({logo});
+
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
