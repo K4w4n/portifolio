@@ -4,50 +4,75 @@ Portfólio pessoal de **Kawan Araújo**, desenvolvedor fullstack. Apresenta expe
 
 ## Stack
 
-- **HTML5** — estrutura semântica
-- **Tailwind CSS** (CDN) — estilização utilitária
-- **JavaScript** (vanilla) — interações e envio de formulário
+- **Next.js 15** (App Router, static export) — framework principal
+- **React 19** — componentes e interatividade
+- **TypeScript** — tipagem estática
+- **Tailwind CSS** — estilização utilitária
 - **Formspree** — backend do formulário de contato
 - **Font Awesome** — ícones
-- **Google Fonts** — Space Grotesk + Inter
+- **next/font** — Space Grotesk + Inter (sem layout shift)
 
 ## Estrutura
 
 ```
 portifolio/
-├── index.html              # Página principal
+├── app/
+│   ├── layout.tsx          # Metadados, fontes, Font Awesome
+│   ├── page.tsx            # Página raiz
+│   └── globals.css         # Tailwind + estilos globais
+├── components/
+│   ├── Navbar.tsx          # Navbar fixa com menu mobile
+│   ├── Hero.tsx            # Seção hero
+│   ├── Sobre.tsx           # Sobre mim
+│   ├── Habilidades.tsx     # Grid de habilidades
+│   ├── Projetos.tsx        # Grid de projetos
+│   ├── Experiencia.tsx     # Timeline profissional
+│   ├── Contato.tsx         # Formulário + links de contato
+│   ├── AnimateEntry.tsx    # Wrapper de animação (IntersectionObserver)
+│   └── Toast.tsx           # Feedback de ações
+├── public/
+│   └── img/
+│       └── logo.svg        # Logo KA
+├── next.config.ts          # output: 'export'
 ├── tailwind.config.js      # Tokens de design (cores, fontes)
 ├── identidade-visual.md    # Guia de identidade visual
-├── script/
-│   └── main.js             # Navbar, menu mobile, animações, formulário
-├── style/
-│   └── main.css            # Estilos globais
-├── img/
-│   └── logo.svg            # Logo KA
 └── .github/
     └── workflows/
         └── deploy.yml      # Deploy automático via FTP
 ```
 
+## Rodando localmente
+
+```bash
+npm install
+npm run dev
+```
+
+Acesse em **http://localhost:3000**
+
+## Build
+
+```bash
+npm run build
+```
+
+Gera a pasta `out/` com o site estático pronto para deploy.
+
 ## Deploy
 
-O deploy é feito automaticamente via **GitHub Actions** a cada push na branch `master`. Os arquivos são enviados para o servidor via FTP.
+O deploy é feito automaticamente via **GitHub Actions** a cada push na branch `master`. O workflow instala as dependências, executa o build e envia a pasta `out/` para o servidor via FTP.
 
 ### Secrets necessários no repositório
 
 | Secret | Descrição |
 |---|---|
-| `FTP_SERVER` | Endereço do servidor FTP (ex: `82.25.72.36`) |
+| `FTP_SERVER` | Endereço do servidor FTP |
 | `FTP_USERNAME` | Usuário FTP |
 | `FTP_PASSWORD` | Senha FTP |
 | `FTP_SERVER_DIR` | Pasta de destino no servidor (ex: `/public_html/`) |
 
-## Rodando localmente
-
-Não há dependências ou build step. Basta abrir o `index.html` no navegador ou usar uma extensão de servidor local como o **Live Server** (VS Code).
-
 ## Contato
 
-- **Email:** kawanaraujocontato@gmail.com
+- **Email:** contato@kawan.dev.br
 - **GitHub:** [github.com/k4w4n](https://github.com/k4w4n)
-- **LinkedIn:** [linkedin.com/in/kawan-araújo-96ba001b1](https://www.linkedin.com/in/kawan-araújo-96ba001b1/)
+- **LinkedIn:** [linkedin.com/in/k4w4n](https://www.linkedin.com/in/k4w4n/)
