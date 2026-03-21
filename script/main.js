@@ -147,6 +147,50 @@ document.querySelectorAll('.copiar-contato').forEach((btn) => {
 });
 
 /* ============================================================
-   5. SCROLL SUAVE — Já ativo via `scroll-smooth` no <html>
+   5. FORMULÁRIO DE CONTATO — Envio via fetch (Formspree)
+============================================================ */
+
+const formContato = document.getElementById('form-contato');
+const btnEnviar   = formContato?.querySelector('button[type="submit"]');
+
+formContato?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const textoOriginal = btnEnviar.textContent;
+  btnEnviar.disabled = true;
+  btnEnviar.textContent = 'Enviando...';
+
+  const dados = new FormData(formContato);
+
+  try {
+    const resposta = await fetch('https://formspree.io/f/mvzwyybl', {
+      method: 'POST',
+      body: dados,
+      headers: { Accept: 'application/json' },
+    });
+
+    if (resposta.ok) {
+      formContato.reset();
+      exibirToastFormulario('Mensagem enviada com sucesso!', true);
+    } else {
+      exibirToastFormulario('Erro ao enviar. Tente novamente.', false);
+    }
+  } catch {
+    exibirToastFormulario('Erro de conexão. Tente novamente.', false);
+  } finally {
+    btnEnviar.disabled = false;
+    btnEnviar.textContent = textoOriginal;
+  }
+});
+
+function exibirToastFormulario(mensagem, sucesso) {
+  toast.textContent = mensagem;
+  toast.classList.toggle('bg-mel', sucesso);
+  toast.classList.toggle('bg-red-500', !sucesso);
+  mostrarToast();
+}
+
+/* ============================================================
+   6. SCROLL SUAVE — Já ativo via `scroll-smooth` no <html>
    Nenhuma implementação extra necessária.
 ============================================================ */
