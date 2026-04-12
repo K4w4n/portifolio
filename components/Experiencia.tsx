@@ -22,7 +22,7 @@ const experiencias: ExperienciaItem[] = [
   {
     periodo: 'Mar 2023 — Abr 2024',
     datetime: '2023-03',
-    cargo: 'Analista de Desenvolvimento Jr.',
+    cargo: 'Analista de Desenvolvimento',
     empresa: 'Jobhome',
     empresaUrl: 'https://jobhome.com.br',
     descricao:
